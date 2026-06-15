@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI-Based V2V Negotiation System for Safe Unsignalized Intersection Navigation in EVs
 
 <div align="center">
@@ -330,3 +331,6 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 <div align="center">
 Made with Python &nbsp;|&nbsp; Raspberry Pi 5 &nbsp;|&nbsp; KL Deemed University &nbsp;|&nbsp; 2025–2026
 </div>
+=======
+# AI-Based-V2V-Intersection-Navigation-System
+>>>>>>> ebf2848db219fe42713dde21aa3753b86439530d
