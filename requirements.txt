@@ -1,0 +1,15 @@
+# Core simulation dependencies
+numpy>=1.24.0
+matplotlib>=3.8.0
+setuptools>=65.0
+
+# Development / testing (install with: pip install -r requirements.txt -r requirements-dev.txt)
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+# flake8>=6.1.0
+
+# Hardware (Raspberry Pi only — install manually on RPi 5)
+# RPi.GPIO>=0.7.1
+# luma.oled>=3.12.0
+# smbus2>=0.4.3
+# Pillow>=10.0.0

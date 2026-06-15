@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# Simulation outputs (keep .gitkeep, ignore generated files)
+data/*.json
+data/*.csv
+outputs/*.png
+outputs/*.pdf
+
+# Log files
+*.log
+after_s1.log
+after_s2.log
+baseline_s1.log
+baseline_s2.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Secrets / environment
+.env
+*.pem
+*.key
+
+# OS
+.DS_Store
+desktop.ini
+
+# Distribution
+*.tar.gz
+*.zip
