@@ -94,6 +94,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
 
+    env:
+      MPLBACKEND: Agg
+
     steps:
       - uses: actions/checkout@v4
 
@@ -107,13 +110,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run scenario_1 (no visualise â€” headless)
-        run: |
-          python main.py --scenario scenario_1 --visualize False --debug
+      - name: Run scenario_1 (headless - no plots)
+        run: python main.py --scenario scenario_1 --debug
 
-      - name: Run scenario_2 (no visualise â€” headless)
-        run: |
-          python main.py --scenario scenario_2 --visualize False
+      - name: Run scenario_2 (headless - no plots)
+        run: python main.py --scenario scenario_2
 
       - name: Generate dataset (100 rows smoke test)
         run: |
@@ -131,6 +132,7 @@ jobs:
           path: |
             data/*.json
             outputs/*.png
+
 
 
 

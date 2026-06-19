@@ -32,8 +32,8 @@ def main():
     parser.add_argument(
         '--visualize',
         action='store_true',
-        default=True,
-        help='Generate visualization plots'
+        default=False,
+        help='Generate visualization plots (requires display or Agg backend)'
     )
     parser.add_argument(
         '--save',
