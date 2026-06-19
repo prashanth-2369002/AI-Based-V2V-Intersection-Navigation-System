@@ -28,4 +28,8 @@ exclude =
     .venv,
     build,
     dist,
-    *.egg-info
+    *.egg-info,
+    IoT-Automatic-Door-System,
+    SmartEV-Charging-System,
+    portfolio,
+    node_modules
