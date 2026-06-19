@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Flask
+instance/
+*.sqlite
+*.db
+
+# Arduino / PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+firmware/.pioenvs/
+*.elf
+*.bin
+*.hex
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets / credentials
+config_secrets.h
+secrets.py
+.env.local
+
+# Assets (tracked via Git LFS in production; skip large binaries here)
+# Uncomment below if using Git LFS:
+# *.gif
+# *.png
+# *.jpg
+# *.pdf

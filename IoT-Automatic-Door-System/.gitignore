@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# Arduino / PlatformIO
+.pio/
+.vscode/
+*.hex
+*.bin
+*.elf
+
+# Credentials
+config_local.h
+secrets.h
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Screenshots (keep placeholder, ignore actual files)
+screenshots/*.jpg
+screenshots/*.jpeg
+screenshots/*.png
+!screenshots/banner_placeholder.png

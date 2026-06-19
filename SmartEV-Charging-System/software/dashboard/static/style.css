@@ -1,0 +1,49 @@
+/* Smart EV Dashboard — custom styles */
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.navbar-brand {
+  letter-spacing: 0.02em;
+}
+
+.card {
+  border-radius: 0.75rem;
+}
+
+.display-6 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.progress {
+  border-radius: 4px;
+}
+
+#val-soc    { color: #4ade80; }
+#val-voltage { color: #60a5fa; }
+#val-power   { color: #facc15; }
+#val-temp    { color: #fb923c; }
+
+.table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  border-color: #374151;
+}
+
+.table td {
+  font-size: 0.85rem;
+  vertical-align: middle;
+  border-color: #374151;
+}
+
+canvas {
+  max-height: 200px;
+}
+
+@media (max-width: 576px) {
+  .display-6 { font-size: 1.4rem; }
+}
