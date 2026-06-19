@@ -1,4 +1,4 @@
-name: CI — V2V Intersection Nav
+﻿name: CI â€” V2V Intersection Nav
 
 on:
   push:
@@ -27,11 +27,7 @@ jobs:
         run: pip install flake8
 
       - name: Run flake8
-        run: |
-          flake8 . \
-            --exclude=__pycache__,data,outputs,.git \
-            --max-line-length=120 \
-            --ignore=E501,W503
+        run: flake8 .
 
   # ----------------------------------------------------------------
   # Unit Tests
@@ -103,11 +99,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run scenario_1 (no visualise — headless)
+      - name: Run scenario_1 (no visualise â€” headless)
         run: |
           python main.py --scenario scenario_1 --visualize False --debug
 
-      - name: Run scenario_2 (no visualise — headless)
+      - name: Run scenario_2 (no visualise â€” headless)
         run: |
           python main.py --scenario scenario_2 --visualize False
 
@@ -127,3 +123,4 @@ jobs:
           path: |
             data/*.json
             outputs/*.png
+
