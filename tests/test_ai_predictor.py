@@ -6,10 +6,7 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-import math
-import pytest
 from ai_predictor import TrajectoryPredictor, CollisionAnalyzer
-import config
 
 
 def _vehicle_info(vid: str, pos, vel, direction):
@@ -38,7 +35,7 @@ class TestTrajectoryPredictor:
         )
         # x should increase monotonically (rightward)
         xs = [p[0] for p in preds]
-        assert all(xs[i+1] >= xs[i] for i in range(len(xs) - 1))
+        assert all(xs[i + 1] >= xs[i] for i in range(len(xs) - 1))
 
     def test_update_history_stores_entries(self):
         self.predictor.update_vehicle_history("V1", (100, 500), 20.0)
@@ -113,7 +110,7 @@ class TestCollisionAnalyzer:
         # Very close vehicles
         v1 = _vehicle_info("V1", (500, 500), 25, (1, 0))
         v2 = _vehicle_info("V2", (505, 500), 5, (-1, 0))
-        result = self.analyzer.analyze_vehicle_pair(v1, v2, current_time=0.5)
+        self.analyzer.analyze_vehicle_pair(v1, v2, current_time=0.5)
         # If risk > 0.7 it's logged; just verify the summary reflects it
         summary = self.analyzer.get_collision_summary()
         assert "total_high_risk_events" in summary

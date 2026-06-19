@@ -11,7 +11,7 @@ so the full simulation stack can be tested without physical hardware.
 import time
 import argparse
 import threading
-from typing import Tuple, Optional
+from typing import Optional
 
 # ---------------------------------------------------------------------------
 # GPIO / hardware availability detection
@@ -29,7 +29,6 @@ try:
     from luma.core.interface.serial import i2c
     from luma.oled.device import ssd1306
     from luma.core.render import canvas
-    from PIL import ImageFont
     _OLED_AVAILABLE = True
 except ImportError:
     _OLED_AVAILABLE = False
@@ -241,7 +240,7 @@ class OLEDDisplay:
             lines: List of strings (max 4).
         """
         if not self.display_available:
-            print("[STUB] OLED:", " | ".join(str(l) for l in lines))
+            print("[STUB] OLED:", " | ".join(str(ln) for ln in lines))
             return
 
         with canvas(self._device) as draw:

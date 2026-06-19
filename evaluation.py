@@ -15,7 +15,7 @@ import json
 import math
 import argparse
 import csv
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 
 # ---------------------------------------------------------------------------

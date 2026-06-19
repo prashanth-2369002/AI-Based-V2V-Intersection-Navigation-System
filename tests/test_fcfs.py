@@ -6,7 +6,6 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-import pytest
 from fcfs import FCFSScheduler, VehicleEntry
 
 
@@ -58,7 +57,7 @@ class TestFCFSScheduler:
 
     def test_three_vehicles_only_first_crosses(self):
         for i, t in enumerate([0.5, 1.0, 1.5]):
-            self.scheduler.add_vehicle(f"V{i+1}", arrival_time=t, eta_to_intersection=5.0)
+            self.scheduler.add_vehicle(f"V{i + 1}", arrival_time=t, eta_to_intersection=5.0)
 
         decisions = self.scheduler.assign_priorities(current_time=2.0)
 

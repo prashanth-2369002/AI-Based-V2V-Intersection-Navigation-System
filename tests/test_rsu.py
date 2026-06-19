@@ -6,12 +6,11 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-import pytest
-from rsu import RSU, RSUState, VehicleEntry
+from rsu import RSU, RSUState
 
 
 def _make_vehicle_info(vid: str, arrival_offset: float = 0.0,
-                        position=(450, 500), velocity=20.0) -> dict:
+                       position=(450, 500), velocity=20.0) -> dict:
     return {
         "vehicle_id": vid,
         "position": position,
@@ -39,7 +38,7 @@ class TestRSURegistration:
 
     def test_register_multiple_vehicles(self):
         for i in range(3):
-            self.rsu.register_vehicle(_make_vehicle_info(f"V{i+1}"), float(i))
+            self.rsu.register_vehicle(_make_vehicle_info(f"V{i + 1}"), float(i))
         assert len(self.rsu.vehicle_registry) == 3
 
     def test_update_vehicle_info_changes_velocity(self):
@@ -56,7 +55,7 @@ class TestFCFSDecision:
 
     def _register_and_decide(self, num_vehicles: int = 2) -> dict:
         for i in range(num_vehicles):
-            info = _make_vehicle_info(f"V{i+1}", arrival_offset=i * 0.1)
+            info = _make_vehicle_info(f"V{i + 1}", arrival_offset=i * 0.1)
             self.rsu.register_vehicle(info, current_time=float(i) * 0.1)
         return self.rsu.make_priority_decision(current_time=1.0)
 
@@ -122,7 +121,7 @@ class TestRSUStatistics:
     def setup_method(self):
         self.rsu = RSU()
         for i in range(2):
-            self.rsu.register_vehicle(_make_vehicle_info(f"V{i+1}"), float(i))
+            self.rsu.register_vehicle(_make_vehicle_info(f"V{i + 1}"), float(i))
         self.rsu.make_priority_decision(1.0)
 
     def test_statistics_contain_expected_keys(self):

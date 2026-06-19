@@ -5,7 +5,7 @@ Orchestrates vehicles, RSU, communication, and AI prediction
 
 import json
 import os
-from typing import Dict, List, Tuple
+from typing import Dict
 from datetime import datetime
 
 import config

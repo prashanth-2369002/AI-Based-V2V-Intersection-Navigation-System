@@ -5,9 +5,8 @@ Generates real-time plots and trajectory visualizations
 
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-from matplotlib.animation import FuncAnimation
 import numpy as np
-from typing import Dict, List, Tuple
+from typing import Dict, List
 import os
 
 import config
@@ -144,7 +143,6 @@ class SimulationVisualizer:
         events = collision_data.get('collision_events', [])
 
         if events:
-            vehicles_a = [e['vehicle_a'] for e in events]
             risk_scores = [e['risk_score'] for e in events]
 
             ax1.scatter(range(len(events)), risk_scores, s=100, alpha=0.6)
@@ -221,19 +219,23 @@ class SimulationVisualizer:
                     
                     # Calculate average velocity from first few points
                     if pred_start_idx > 0:
-                        vel_x = (actual_trajectory[pred_start_idx][0] - actual_trajectory[0][0]) / (pred_start_idx * config.TIME_STEP_DURATION)
-                        vel_y = (actual_trajectory[pred_start_idx][1] - actual_trajectory[0][1]) / (pred_start_idx * config.TIME_STEP_DURATION)
-                        
-                        # Predict future trajectory
+                        dt = pred_start_idx * config.TIME_STEP_DURATION
+                        vel_x = (actual_trajectory[pred_start_idx][0]
+                                 - actual_trajectory[0][0]) / dt
+                        vel_y = (actual_trajectory[pred_start_idx][1]
+                                 - actual_trajectory[0][1]) / dt
+
                         pred_trajectory = [start_pos]
                         current_x, current_y = start_pos
-                        for step in range(50):
+                        for _ in range(50):
                             current_x += vel_x * config.TIME_STEP_DURATION
                             current_y += vel_y * config.TIME_STEP_DURATION
                             pred_trajectory.append((current_x, current_y))
-                        
+
                         xs_pred, ys_pred = zip(*pred_trajectory)
-                        ax.plot(xs_pred, ys_pred, 'r--', linewidth=2, label='Predicted Path', alpha=0.7, marker='x', markersize=4)
+                        ax.plot(xs_pred, ys_pred, 'r--', linewidth=2,
+                                label='Predicted Path', alpha=0.7,
+                                marker='x', markersize=4)
 
             ax.set_xlim(0, config.GRID_SIZE)
             ax.set_ylim(0, config.GRID_SIZE)
@@ -342,11 +344,11 @@ class SimulationVisualizer:
         print("\nCommunication Statistics:")
         v2v = results['communication_statistics']['v2v']
         v2i = results['communication_statistics']['v2i']
-        print(f"  V2V:")
+        print("  V2V:")
         print(f"    - Messages Sent: {v2v['total_messages_sent']}")
         print(f"    - Messages Received: {v2v['total_messages_received']}")
         print(f"    - Loss Rate: {v2v['message_loss_rate']:.2%}")
-        print(f"  V2I:")
+        print("  V2I:")
         print(f"    - Messages Sent: {v2i['total_messages_sent']}")
         print(f"    - Messages Received: {v2i['total_messages_received']}")
         print(f"    - Loss Rate: {v2i['message_loss_rate']:.2%}")

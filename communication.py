@@ -3,10 +3,9 @@ Communication module for V2V and V2I message exchange
 Simulates message transmission, delays, and packet loss
 """
 
-import time
 import random
 from dataclasses import dataclass, asdict
-from typing import List, Dict, Optional
+from typing import List, Dict
 from enum import Enum
 
 import config

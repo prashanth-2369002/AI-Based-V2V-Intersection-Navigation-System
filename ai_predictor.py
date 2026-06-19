@@ -3,8 +3,7 @@ AI-based trajectory prediction and collision risk analysis
 """
 
 import math
-from typing import Dict, List, Tuple, Optional
-import numpy as np
+from typing import Dict, List, Tuple
 
 import config
 

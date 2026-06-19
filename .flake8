@@ -1,0 +1,31 @@
+[flake8]
+max-line-length = 120
+extend-ignore =
+    # Style: continuation-line indentation (pre-existing code)
+    E127,
+    E128,
+    # Style: missing whitespace around arithmetic operator
+    E226,
+    # Style: line break before/after binary operator
+    W503,
+    W504,
+    # Style: whitespace on blank lines (pre-existing code)
+    W293,
+    W291,
+    # E741 ambiguous variable name (l, O, I) — flagged in luma.oled usage
+    E741
+
+per-file-ignores =
+    # Tests manipulate sys.path before imports — E402 is expected
+    tests/*.py: E402, F401
+
+exclude =
+    __pycache__,
+    data,
+    outputs,
+    .git,
+    venv,
+    .venv,
+    build,
+    dist,
+    *.egg-info

@@ -20,11 +20,9 @@ Columns:
 
 import argparse
 import csv
-import json
 import math
 import os
 import random
-from datetime import datetime
 from typing import Dict, List, Tuple
 
 import config
@@ -37,6 +35,7 @@ from ai_predictor import TrajectoryPredictor
 # ---------------------------------------------------------------------------
 
 INTERSECTION = config.INTERSECTION_CENTER
+
 
 def _dist(pos: Tuple[float, float]) -> float:
     return math.sqrt((pos[0] - INTERSECTION[0])**2 + (pos[1] - INTERSECTION[1])**2)
@@ -212,10 +211,10 @@ def _print_label_distribution(rows: List[Dict]) -> None:
     for r in rows:
         states[r["state"]] = states.get(r["state"], 0) + 1
 
-    print(f"\n  Label distribution:")
-    print(f"    priority=1 (cross): {p1} ({p1/n:.1%})")
-    print(f"    priority=0 (wait):  {p0} ({p0/n:.1%})")
-    print(f"    high risk (>0.5):   {high_risk} ({high_risk/n:.1%})")
+    print("\n  Label distribution:")
+    print(f"    priority=1 (cross): {p1} ({p1 / n:.1%})")
+    print(f"    priority=0 (wait):  {p0} ({p0 / n:.1%})")
+    print(f"    high risk (>0.5):   {high_risk} ({high_risk / n:.1%})")
     print(f"    states: {states}")
 
 
